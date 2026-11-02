@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pinball Neon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee&family=Chakra+Petch:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="app">
+  <div class="stage-wrap">
+    <div class="stage" id="stage">
+      <canvas id="c" aria-label="Mesa de pinball"></canvas>
+      <div class="overlay" id="overlay">
+        <div class="card ov-card">
+          <h1 id="ovTitle">Pinball <span style="color:var(--pink)">Neon</span></h1>
+          <p id="ovText">Você tem 4 bolas. Acerte bumpers, alvos, a caçapa e as raias para multiplicar seus pontos.</p>
+          <div class="big" id="ovScore" hidden></div>
+          <form class="name-form" id="nameForm" hidden>
+            <input id="nameIn" maxlength="12" placeholder="Seu nome" autocomplete="off" aria-label="Seu nome">
+            <button class="btn primary" type="submit">Salvar</button>
+          </form>
+          <div><h2>Classificação</h2><ol class="rank" id="ovRank"></ol></div>
+          <button class="btn primary" id="btnPlay" type="button">Jogar</button>
+        </div>
+      </div>
+    </div>
+    <div class="power-label"><span>Força do lançamento</span><span id="hint">Segure ESPAÇO</span></div>
+    <div class="power"><i id="powerFill"></i></div>
+    <div class="touch">
+      <button id="tL" type="button">Esq.</button>
+      <button id="tP" type="button" class="launch">Lançar</button>
+      <button id="tR" type="button">Dir.</button>
+    </div>
+  </div>
+
+  <aside class="side">
+    <div class="brand">Pinball <b>Neon</b></div>
+    <div class="card">
+      <div class="score-label">Pontos</div>
+      <div class="score" id="score">0</div>
+      <div class="row" style="margin-top:10px">
+        <div class="stat"><span class="score-label">Bolas</span><div class="dots" id="dots"></div></div>
+        <div class="stat"><span class="score-label">Multiplicador</span><span class="v" id="mult">x1</span></div>
+        <div class="stat"><span class="score-label">Recorde</span><span class="v" id="best">0</span></div>
+      </div>
+    </div>
+    <div class="card hide-m"><h2>Classificação</h2><ol class="rank" id="rank"></ol></div>
+    <div class="card hide-m"><h2>Pontuação</h2>
+      <dl class="pts">
+        <dt>100</dt><dd>Bumper redondo</dd>
+        <dt>500</dt><dd>Alvo lateral (completar o grupo dá 2.000 a 3.000)</dd>
+        <dt>1.000</dt><dd>Caçapa da esquerda</dd>
+        <dt>50</dt><dd>Raias A B C (as três acesas: +2.000 e sobe o multiplicador até x5)</dd>
+        <dt>10</dt><dd>Estilingue</dd>
+        <dt>250 / 500</dt><dd>Raia interna / raia externa</dd>
+      </dl>
+    </div>
+    <div class="card hide-m"><h2>Controles</h2>
+      <dl class="keys">
+        <dt><kbd>←</kbd> <kbd>Z</kbd></dt><dd>Flipper esquerdo</dd>
+        <dt><kbd>→</kbd> <kbd>/</kbd></dt><dd>Flipper direito</dd>
+        <dt><kbd>Espaço</kbd></dt><dd>Segure e solte para lançar</dd>
+        <dt><kbd>↑</kbd></dt><dd>Sacudir a mesa</dd>
+        <dt><kbd>P</kbd></dt><dd>Pausar</dd>
+      </dl>
+    </div>
+    <div class="btns">
+      <button class="btn" id="btnSound" type="button">Som: ligado</button>
+      <button class="btn" id="btnPause" type="button">Pausar</button>
+      <button class="btn" id="btnNew" type="button">Novo jogo</button>
+    </div>
+  </aside>
+</main>
+
+<script src="game.js"></script>
+</body>
+</html>
